@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import ModalBg from '../ModalBg'
 
 type Props = {
@@ -53,7 +54,7 @@ export default function TitleModal(props:Props) {
               marginBottom: '1rem',
             }}
             />
-          <a href="/login/logined"
+          <Link href="/login/logined"
             style={{
               width: '222px',
               backgroundColor: "white",
@@ -63,22 +64,10 @@ export default function TitleModal(props:Props) {
             }}
             >
             ログイン
-          </a>
+          </Link>
+          <p style={{marginBottom: '1rem'}}>または</p>
         </section>
       }
-        <div
-        style={{
-          width: '222px',
-          backgroundColor: "white",
-          color: "black",
-          border: "1px solid black",
-            marginBottom: '1rem',
-          }}
-        >
-          <a href="/register/register">
-            新規登録
-          </a>
-        </div>
         <section
           style={{
             width: '100%',
@@ -88,8 +77,7 @@ export default function TitleModal(props:Props) {
             alignItems: 'center',
           }}
         >
-          <p style={{marginBottom: '1rem'}}>または</p>
-          <a href="/login/logined"
+          <Link href="/login/logined"
             style={{
               width: '222px',
               backgroundColor: "white",
@@ -99,8 +87,8 @@ export default function TitleModal(props:Props) {
             }}
           >
             ツイッターでログイン
-          </a>
-          <a href="/login/logined"
+          </Link>
+          <Link href="/login/logined"
             style={{
               width: '222px',
               backgroundColor: "white",
@@ -110,8 +98,26 @@ export default function TitleModal(props:Props) {
             }}
           >
             グーグルでログイン
-          </a>
+          </Link>
         </section>
+        {!props.props &&
+          <div>
+            <p style={{marginBottom: '1rem'}}>または</p>
+            <div
+            style={{
+              width: '222px',
+              backgroundColor: "white",
+              color: "black",
+              border: "1px solid black",
+                marginBottom: '1rem',
+              }}
+            >
+              <Link href="/register/register">
+                メールアドレスで新規登録
+              </Link>
+            </div>
+          </div>
+        }
       </div>
     </div>
   )
