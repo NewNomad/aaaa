@@ -2,7 +2,6 @@
 import { ButtonNav } from "@/components/ButtonNav";
 import { Icon } from "@/components/profile/elements/Icon";
 import { Styles } from "@/types/styles";
-import { Head } from "next/document";
 import React, { CSSProperties, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -18,7 +17,9 @@ const Profile = () => {
       <Icon width={100} height={100} />
       <p style={styles.user_name}>ユーザー名</p>
       <div style={styles.edit_box}>
-        <Link href='/profileEdit' style={styles.edit_btn}>プロフィールを編集</Link>
+        <Link href="/profileEdit" style={styles.edit_btn}>
+          プロフィールを編集
+        </Link>
         <Image
           src="/profile/other.svg"
           alt="..."

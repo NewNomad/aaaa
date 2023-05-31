@@ -1,12 +1,17 @@
-import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "next/font/google";
-import styles from "@/styles/Home.module.css";
-import { ButtonNav } from "@/components/ButtonNav";
+import Head from "next/head"
+import React, { useState } from 'react'
+import Image from "next/image"
+import { Inter } from "next/font/google"
+import { useRecoilState } from 'recoil'
+import { modalState } from '../../atoms/modalAtom'
+import TitleModal from '../components/title/TitleModal'
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const [showModal , setShowModal] = useRecoilState(modalState)
+  const [loginModal, setLoginModal] = useState(false)
+
   return (
     <>
       <Head>
@@ -16,8 +21,55 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <div>マップ画面</div>
-        <ButtonNav />
+        <div
+          style={{
+            backgroundColor: "#999",
+            position: "absolute",
+            top: 100,
+            left: "40%",
+            width: 100,
+            height: 100,
+          }}
+        >
+          ロゴ
+        </div>
+        <button
+          style={{
+            backgroundColor: "white",
+            color: "black",
+            border: "1px solid black",
+            position: "absolute",
+            bottom: 350,
+            left: "40%",
+          }}
+          onClick={()=>{
+            setLoginModal(false)
+            setShowModal(true)
+          }}
+        >
+          新規登録
+        </button>
+        <button
+          style={{
+            backgroundColor: "white",
+            color: "black",
+            border: "1px solid black",
+            position: "absolute",
+            bottom: 250,
+            left: "40%",
+          }}
+          onClick={()=>{
+            setLoginModal(true)
+            setShowModal(true)
+          }}
+        >
+          ログイン
+        </button>
+
+        {/* モーダル表示 */}
+        {
+          showModal && <TitleModal props={loginModal} />
+        }
       </main>
     </>
   );
