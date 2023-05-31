@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Head from 'next/head'
 import { useRecoilState } from 'recoil'
-import titleModal from '../components/title/TitleModal'
 import { modalState } from '../../atoms/modalAtom'
 import TitleModal from '../components/title/TitleModal'
 
 export default function title() {
   const [showModal , setShowModal] = useRecoilState(modalState)
+  const [loginModal, setLoginModal] = useState(false)
+
   return (
     <>
       <Head>
@@ -34,14 +35,15 @@ export default function title() {
             color: "black",
             border: "1px solid black",
             position: "absolute",
-            bottom: 250,
+            bottom: 350,
             left: "40%",
           }}
           onClick={()=>{
+            setLoginModal(false)
             setShowModal(true)
           }}
         >
-          ログイン
+          新規登録
         </button>
         <button
           style={{
@@ -49,19 +51,20 @@ export default function title() {
             color: "black",
             border: "1px solid black",
             position: "absolute",
-            bottom: 350,
+            bottom: 250,
             left: "40%",
           }}
           onClick={()=>{
+            setLoginModal(true)
             setShowModal(true)
           }}
         >
-          新規登録
+          ログイン
         </button>
 
         {/* モーダル表示 */}
         {
-          showModal && <TitleModal />
+          showModal && <TitleModal props={loginModal} />
         }
       </main>
     </>

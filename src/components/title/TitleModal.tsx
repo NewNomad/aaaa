@@ -1,6 +1,10 @@
 import ModalBg from '../ModalBg'
 
-export default function TitleModal() {
+type Props = {
+  props: boolean
+}
+
+export default function TitleModal(props:Props) {
   return (
     <div>
       <ModalBg />
@@ -19,6 +23,7 @@ export default function TitleModal() {
           alignItems: 'center',
         }}
       >
+      {props.props &&
         <section
           style={{
             width: 'auto',
@@ -37,7 +42,7 @@ export default function TitleModal() {
               border: "1px solid black",
               marginBottom: '1rem',
             }}
-          />
+            />
           <input
             value=""
             placeholder="パスワード"
@@ -47,7 +52,7 @@ export default function TitleModal() {
               border: "1px solid black",
               marginBottom: '1rem',
             }}
-          />
+            />
           <a href="/login/logined"
             style={{
               width: '222px',
@@ -56,16 +61,17 @@ export default function TitleModal() {
               border: "1px solid black",
               marginBottom: '1rem',
             }}
-          >
+            >
             ログイン
           </a>
         </section>
+      }
         <div
-          style={{
-            width: '222px',
-            backgroundColor: "white",
-            color: "black",
-            border: "1px solid black",
+        style={{
+          width: '222px',
+          backgroundColor: "white",
+          color: "black",
+          border: "1px solid black",
             marginBottom: '1rem',
           }}
         >
