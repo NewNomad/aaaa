@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 
 export default function logined() {
   return (
@@ -22,7 +23,7 @@ export default function logined() {
         >
           ロゴ
         </div>
-        <a
+        <Link
           style={{
             backgroundColor: "white",
             color: "black",
@@ -31,10 +32,10 @@ export default function logined() {
             bottom: 300,
             left: "40%",
           }}
-          href="/"
+          href="/map"
         >
           スタートボタン
-        </a>
+        </Link>
       </main>
     </>
   );

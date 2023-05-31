@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import ModalBg from '../ModalBg'
 
 type Props = {
@@ -53,7 +54,7 @@ export default function TitleModal(props:Props) {
               marginBottom: '1rem',
             }}
             />
-          <a href="/login/logined"
+          <Link href="/login/logined"
             style={{
               width: '222px',
               backgroundColor: "white",
@@ -63,7 +64,7 @@ export default function TitleModal(props:Props) {
             }}
             >
             ログイン
-          </a>
+          </Link>
           <p style={{marginBottom: '1rem'}}>または</p>
         </section>
       }
@@ -76,7 +77,7 @@ export default function TitleModal(props:Props) {
             alignItems: 'center',
           }}
         >
-          <a href="/login/logined"
+          <Link href="/login/logined"
             style={{
               width: '222px',
               backgroundColor: "white",
@@ -86,8 +87,8 @@ export default function TitleModal(props:Props) {
             }}
           >
             ツイッターでログイン
-          </a>
-          <a href="/login/logined"
+          </Link>
+          <Link href="/login/logined"
             style={{
               width: '222px',
               backgroundColor: "white",
@@ -97,7 +98,7 @@ export default function TitleModal(props:Props) {
             }}
           >
             グーグルでログイン
-          </a>
+          </Link>
         </section>
         {!props.props &&
           <div>
@@ -111,9 +112,9 @@ export default function TitleModal(props:Props) {
                 marginBottom: '1rem',
               }}
             >
-              <a href="/register/register">
+              <Link href="/register/register">
                 メールアドレスで新規登録
-              </a>
+              </Link>
             </div>
           </div>
         }
