@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-export default function Login() {
+export default function Logined() {
   return (
     <>
       <Head>
@@ -24,17 +24,6 @@ export default function Login() {
         </div>
         <button
           style={{
-            backgroundColor: "black",
-            color: "white",
-            position: "absolute",
-            bottom: 350,
-            left: "40%",
-          }}
-        >
-          新規会員登録
-        </button>
-        <button
-          style={{
             backgroundColor: "white",
             color: "black",
             border: "1px solid black",
@@ -43,7 +32,7 @@ export default function Login() {
             left: "40%",
           }}
         >
-          ログイン
+          スタートボタン
         </button>
       </main>
     </>
