@@ -3,10 +3,12 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import { ButtonNav } from "@/components/ButtonNav";
+import { useCustomRouter } from "@/hooks/useCustomRouter";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Submit() {
+  const { handlePushRouter, handleBackRouter } = useCustomRouter();
   return (
     <>
       <Head>
@@ -31,6 +33,7 @@ export default function Submit() {
               top: 12,
               fontSize: 20,
             }}
+            onClick={handleBackRouter}
           >
             ×
           </span>
@@ -55,6 +58,7 @@ export default function Submit() {
               top: 17,
               fontSize: 16,
             }}
+            onClick={() => handlePushRouter("/map")}
           >
             保存
           </span>
