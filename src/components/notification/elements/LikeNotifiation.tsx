@@ -9,7 +9,7 @@ type Props = {
 }
 const LikeNotifiation = ({ imageUrl, userName, title, userIconUrl }: Props) => {
   return (
-    <ul style={styles.container}>
+    <li style={styles.container}>
       <img style={styles.userIcon} src={userIconUrl}></img>
       <div style={styles.textContent}>
         <div style={styles.userName}>@{userName}</div>
@@ -17,24 +17,31 @@ const LikeNotifiation = ({ imageUrl, userName, title, userIconUrl }: Props) => {
         <div style={styles.title}>{title}</div>
       </div>
       <div>{imageUrl && <img style={styles.content} src={imageUrl}></img>}</div>
-    </ul>
+    </li>
   );
 };
 
 const styles: Styles = {
   container: {
     display: "flex",
-    paddingLeft: "0px",
-    margin: "10px",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    background: '#f4f4f4',
+    maxWidth: '800px',
+    padding: '20px',
+    margin: '5px auto',
   },
   textContent: {
-    width: "400px",
-    marginRight: "10px",
+    width: "auto",
+    padding: "20px",
+    marginRight: '10px',
   },
   userIcon: {
     display: "inline-block",
     borderRadius: "50px",
-    padding: "0 10px 0 0",
+    padding: "10px",
+    marginRight: '10px',
   },
   userName: {
     display: "inline-block",
@@ -45,8 +52,8 @@ const styles: Styles = {
     color: "#919191",
   },
   content: {
-    padding: "0 10px 0 0",
-    width: "120px",
+    minWidth: "120px",
+    borderRadius: '5px'
   },
 };
 
