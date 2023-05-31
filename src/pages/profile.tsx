@@ -5,6 +5,7 @@ import { Styles } from "@/types/styles";
 import { Head } from "next/document";
 import React, { CSSProperties, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Profile = () => {
   const [tab, setTab] = useState<"post" | "like">("post");
@@ -17,7 +18,7 @@ const Profile = () => {
       <Icon width={100} height={100} />
       <p style={styles.user_name}>ユーザー名</p>
       <div style={styles.edit_box}>
-        <button style={styles.edit_btn}>プロフィールを編集</button>
+        <Link href='/profileEdit' style={styles.edit_btn}>プロフィールを編集</Link>
         <Image
           src="/profile/other.svg"
           alt="..."
@@ -76,6 +77,7 @@ const styles: Styles = {
     border: "none",
     padding: "5px 60px",
     margin: "0 10px 0 0",
+    textDecoration: "none",
   },
   tab: {
     margin: "20px 0 5px 0 ",
