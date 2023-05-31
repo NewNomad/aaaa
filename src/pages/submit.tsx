@@ -18,57 +18,77 @@ export default function Submit() {
       <main>
         <div
           style={{
-            position: "absolute",
-            bottom: -50,
-            left: 0,
             width: "100%",
-            height: 800,
-            borderRadius: 50,
-            boxShadow: "0px 0px 10px 10px #999",
+            height: 60,
+            borderBottom: "1px solid #000",
           }}
         >
-          <dl
+          <span
             style={{
-              marginTop: 50,
+              fontWeight: "bold",
+              position: "absolute",
+              left: 10,
+              top: 12,
+              fontSize: 20,
             }}
           >
-            <dt>タイトル</dt>
-            <dd>
-              <input type="text" name="title" value={"タグ名"} />
-            </dd>
-          </dl>
-
-          <dl
+            ×
+          </span>
+          <span
             style={{
-              marginTop: 100,
+              fontWeight: "bold",
+              position: "absolute",
+              left: "50%",
+              transform: "translate(-50%, 0%)",
+              top: 12,
+              fontSize: 20,
             }}
           >
-            <dt>内容</dt>
-            <dd>
-              <input type="text" name="title" value={"テキスト"} />
-            </dd>
-          </dl>
-
-          <dl
+            新規投稿
+          </span>
+          <span
             style={{
-              marginTop: 50,
+              color: "#0098FD",
+              fontWeight: "bold",
+              position: "absolute",
+              right: 10,
+              top: 17,
+              fontSize: 16,
             }}
           >
-            <dt>マークカラー</dt>
-            <dd>
-              <div
-                style={{
-                  width: 50,
-                  height: 50,
-                  borderRadius: "50%",
-                  backgroundColor: "red",
-                }}
-              >
-                いろ
-              </div>
-            </dd>
-          </dl>
+            保存
+          </span>
         </div>
+        <input
+          placeholder="タイトル"
+          style={{
+            width: "100%",
+            height: 60,
+            border: "none",
+            borderBottom: "1px solid #aaa",
+          }}
+        />
+        <textarea
+          placeholder="コメント"
+          style={{
+            width: "100%",
+            height: 200,
+            border: "none",
+            borderBottom: "1px solid #aaa",
+          }}
+        />
+        <Image
+          src="/submit/Group157.svg"
+          alt="..."
+          width={80}
+          height={80}
+          style={{
+            position: "absolute",
+            right: 0,
+            bottom: 0,
+            transform: "translate(-50%, -50%)",
+          }}
+        />
       </main>
     </>
   );
