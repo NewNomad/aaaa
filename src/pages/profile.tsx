@@ -18,7 +18,9 @@ const Profile = () => {
       <Icon width={100} height={100} />
       <p style={styles.user_name}>ユーザー名</p>
       <div style={styles.edit_box}>
-        <Link href='/profileEdit' style={styles.edit_btn}>プロフィールを編集</Link>
+        <Link href="/profileEdit" style={styles.edit_btn}>
+          プロフィールを編集
+        </Link>
         <Image
           src="/profile/other.svg"
           alt="..."
