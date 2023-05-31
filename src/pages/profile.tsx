@@ -2,7 +2,6 @@
 import { ButtonNav } from "@/components/ButtonNav";
 import { Icon } from "@/components/profile/elements/Icon";
 import { Styles } from "@/types/styles";
-import { Head } from "next/document";
 import React, { CSSProperties, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
