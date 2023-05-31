@@ -1,7 +1,24 @@
-import Head from 'next/head'
-import { ButtonNav } from '@/components/ButtonNav'
+import Head from "next/head";
+import { ButtonNav } from "@/components/ButtonNav";
+import { GoogleMap, LoadScriptNext } from "@react-google-maps/api";
+import { useEffect, useState } from "react";
 
 export default function map() {
+  // 現在位置
+  const [center, setCenter] = useState({ lat: 0, lng: 0 });
+
+  // 現在位置を取得
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        setCenter({
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        });
+      });
+    }
+  }, []);
+
   return (
     <>
       <Head>
@@ -11,9 +28,27 @@ export default function map() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <div>マップ画面</div>
+        <LoadScriptNext googleMapsApiKey="">
+          <GoogleMap
+            mapContainerStyle={{
+              width: "100%",
+              height: "100vh",
+            }}
+            center={center}
+            zoom={15}
+            clickableIcons={false}
+            options={{
+              gestureHandling: "greedy",
+              streetViewControl: false,
+              fullscreenControl: false,
+              disableDefaultUI: false,
+              mapTypeControl: false,
+              zoomControl: false,
+            }}
+          ></GoogleMap>
+        </LoadScriptNext>
         <ButtonNav />
       </main>
     </>
-  )
+  );
 }
