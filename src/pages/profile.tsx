@@ -15,24 +15,40 @@ const Profile = () => {
   return (
     <main style={styles.container}>
       <Icon width={100} height={100} />
-      <p style={styles.user_name}>ユーザー名</p>
+      <p style={styles.user_name}>@fijro</p>
       <div style={styles.edit_box}>
         <Link href="/profileEdit" style={styles.edit_btn}>
           プロフィールを編集
         </Link>
-        <Image
-          src="/profile/other.svg"
-          alt="..."
-          width={35}
-          height={35}
-          style={styles.other}
-        />
+        <Link href="/profileConfig">
+          <Image
+            src="/profile/other.svg"
+            alt="..."
+            width={35}
+            height={35}
+            style={styles.other}
+          />
+        </Link>
       </div>
       <div style={styles.tab}>
-        <p style={styles.tab_p} onClick={() => handleClickTab("post")}>
+        <p
+          style={
+            tab === "post"
+              ? { ...styles.tab_p, color: "#000" }
+              : { ...styles.tab_p, color: "#999" }
+          }
+          onClick={() => handleClickTab("post")}
+        >
           投稿
         </p>
-        <p style={styles.tab_p} onClick={() => handleClickTab("like")}>
+        <p
+          style={
+            tab === "like"
+              ? { ...styles.tab_p, color: "#000" }
+              : { ...styles.tab_p, color: "#999" }
+          }
+          onClick={() => handleClickTab("like")}
+        >
           いいね
         </p>
       </div>
@@ -40,14 +56,14 @@ const Profile = () => {
         <div
           style={
             tab === "post"
-              ? { ...styles.under_line, background: "#000" }
+              ? { ...styles.under_line, background: "#0098FD" }
               : { ...styles.under_line, background: "#c8c8c8" }
           }
         ></div>
         <div
           style={
             tab === "like"
-              ? { ...styles.under_line, background: "#000" }
+              ? { ...styles.under_line, background: "#0098FD" }
               : { ...styles.under_line, background: "#c8c8c8" }
           }
         ></div>
@@ -73,12 +89,13 @@ const styles: Styles = {
     margin: "0  0 10px 0",
   },
   edit_btn: {
-    backgroundColor: "#000",
-    color: "#fff",
+    backgroundColor: "#ebebeb",
+    color: "#333",
     border: "none",
     padding: "5px 60px",
     margin: "0 10px 0 0",
     textDecoration: "none",
+    fontWeight: "bold",
   },
   tab: {
     margin: "20px 0 5px 0 ",
@@ -86,7 +103,9 @@ const styles: Styles = {
     width: "100%",
     justifyContent: "space-around",
   },
-  tab_p: {},
+  tab_p: {
+    fontWeight: "bold",
+  },
   under_lines: {
     display: "flex",
     width: "100%",
