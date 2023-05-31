@@ -2,10 +2,10 @@ import { Header } from '@/components/Header'
 import Link from 'next/link'
 import React from 'react'
 
-export default function register() {
+export default function mailSendForm() {
   return (
     <div>
-      <Header title="新規会員登録" />
+      <Header title="パスワードを忘れた方" />
       <div
         style={{
           display: 'flex',
@@ -14,6 +14,7 @@ export default function register() {
           marginBottom: '1rem',
         }}
       >
+        <p>〇〇〇〇に登録したメールアドレスを入力してください。パスワード再設定のリンクをお送りします。</p>
         <input
           type='email'
           placeholder='メールアドレス'
@@ -27,20 +28,7 @@ export default function register() {
             marginBottom: '2rem',
           }}
         />
-        <input
-          type='password'
-          placeholder='パスワード'
-          style={{
-            backgroundColor: "white",
-            height: '55px',
-            borderRadius: '5px',
-            color: "black",
-            border: "1px solid black",
-            padding: '10px',
-            marginBottom: '2rem',
-          }}
-        />
-        <Link href='/login/logined'
+        <Link href='/login/setNewPass'
           style={{
             display: 'flex',
             justifyContent: 'center',
@@ -53,7 +41,7 @@ export default function register() {
             textDecoration: 'none',
           }}
         >
-          新規会員登録
+          送信
         </Link>
       </div>
     </div>

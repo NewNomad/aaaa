@@ -1,33 +1,43 @@
 import Link from 'next/link'
 import ModalBg from '../ModalBg'
+import { useRecoilState } from 'recoil'
+import { modalState } from '../../../atoms/modalAtom'
+import Image from 'next/image'
 
 type Props = {
   props: boolean
 }
 
 export default function TitleModal(props:Props) {
+
+  const [showModal, setShowModal] = useRecoilState(modalState)
+
+  const closeTitleModal = () => {
+    setShowModal(false)
+  }
   return (
     <div>
       <ModalBg />
       <div
         style={{
           position: 'fixed',
-          width: '100%',
-          height: '50%',
+          left:0,
           bottom: 0,
-          background: 'white',
-          borderRadius: '50px 50px 0 0',
+          width: '100%',
           display: 'flex',
           flexDirection: 'column',
           textAlign: 'center',
           justifyContent: 'center',
           alignItems: 'center',
+          padding: '60px',
+          background: 'white',
+          borderRadius: '50px 50px 0 0',
         }}
       >
       {props.props &&
         <section
           style={{
-            width: 'auto',
+            width: '100%',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
@@ -35,35 +45,63 @@ export default function TitleModal(props:Props) {
           }}
         >
           <input
-            value=""
+            type='email'
             placeholder="メールアドレス"
             style={{
+              width: '100%',
               backgroundColor: "white",
+              height: '55px',
+              borderRadius: '5px',
               color: "black",
               border: "1px solid black",
-              marginBottom: '1rem',
+              padding: '10px',
+              marginBottom: '2rem',
             }}
             />
           <input
-            value=""
+            type='password'
             placeholder="パスワード"
             style={{
+              width: '100%',
               backgroundColor: "white",
+              height: '55px',
+              borderRadius: '5px',
               color: "black",
               border: "1px solid black",
-              marginBottom: '1rem',
+              padding: '10px',
+              marginBottom: '2rem',
             }}
             />
           <Link href="/login/logined"
-            style={{
-              width: '222px',
-              backgroundColor: "white",
-              color: "black",
-              border: "1px solid black",
-              marginBottom: '1rem',
-            }}
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: "#0098FD",
+            width: '100%',
+            height: '55px',
+            borderRadius: '30px',
+            color: "white",
+            fontWeight: 'bold',
+            marginBottom: '2rem',
+            textDecoration: 'none',
+          }}
+          onClick={closeTitleModal}
             >
             ログイン
+          </Link>
+          <Link href='/login/mailSendForm'
+            style={{
+              display: 'flex',
+              width: '100%',
+              color: "black",
+              textDecoration: 'none',
+              justifyContent: 'end',
+              marginBottom: '10px',
+            }}
+            onClick={closeTitleModal}
+          >
+            パスワードを忘れた方
           </Link>
           <p style={{marginBottom: '1rem'}}>または</p>
         </section>
@@ -79,40 +117,96 @@ export default function TitleModal(props:Props) {
         >
           <Link href="/login/logined"
             style={{
-              width: '222px',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
               backgroundColor: "white",
-              color: "black",
-              border: "1px solid black",
-              marginBottom: '1rem',
+              width: '100%',
+              height: '55px',
+              borderRadius: '30px',
+              border: '1px solid black',
+              color: 'black',
+              fontWeight: 'bold',
+              marginBottom: '2rem',
+              textDecoration: 'none',
             }}
+            onClick={closeTitleModal}
           >
-            ツイッターでログイン
+            <Image
+              width={25}
+              height={25}
+              alt='google'
+              src={'/socials/twitter.svg'}
+              style={{
+                marginRight: '15px'
+              }}
+            />
+            Twitterでログイン
           </Link>
           <Link href="/login/logined"
             style={{
-              width: '222px',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
               backgroundColor: "white",
-              color: "black",
-              border: "1px solid black",
-              marginBottom: '1rem',
+              width: '100%',
+              height: '55px',
+              borderRadius: '30px',
+              border: '1px solid black',
+              color: 'black',
+              fontWeight: 'bold',
+              marginBottom: '2rem',
+              textDecoration: 'none',
             }}
+            onClick={closeTitleModal}
           >
-            グーグルでログイン
+            <Image
+              width={25}
+              height={25}
+              alt='google'
+              src={'/socials/google.svg'}
+              style={{
+                marginRight: '15px'
+              }}
+            />
+            Googleでログイン
           </Link>
         </section>
         {!props.props &&
-          <div>
+          <div
+            style={{
+              width: '100%',
+            }}
+          >
             <p style={{marginBottom: '1rem'}}>または</p>
             <div
-            style={{
-              width: '222px',
-              backgroundColor: "white",
-              color: "black",
-              border: "1px solid black",
-                marginBottom: '1rem',
-              }}
             >
-              <Link href="/register/register">
+              <Link href="/register/register"
+                style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  backgroundColor: "white",
+                  width: '100%',
+                  height: '55px',
+                  borderRadius: '30px',
+                  border: '1px solid black',
+                  color: 'black',
+                  fontWeight: 'bold',
+                  marginBottom: '2rem',
+                  textDecoration: 'none',
+                }}
+                onClick={closeTitleModal}
+              >
+              <Image
+                width={25}
+                height={25}
+                alt='google'
+                src={'/socials/mailRegist.svg'}
+                style={{
+                  marginRight: '15px'
+                }}
+              />
                 メールアドレスで新規登録
               </Link>
             </div>

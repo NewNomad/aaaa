@@ -2,10 +2,10 @@ import { Header } from '@/components/Header'
 import Link from 'next/link'
 import React from 'react'
 
-export default function register() {
+export default function setNewPass() {
   return (
     <div>
-      <Header title="新規会員登録" />
+      <Header title="パスワード再設定" />
       <div
         style={{
           display: 'flex',
@@ -15,8 +15,8 @@ export default function register() {
         }}
       >
         <input
-          type='email'
-          placeholder='メールアドレス'
+          type='password'
+          placeholder='新しいパスワード'
           style={{
             backgroundColor: "white",
             height: '55px',
@@ -29,7 +29,7 @@ export default function register() {
         />
         <input
           type='password'
-          placeholder='パスワード'
+          placeholder='新しいパスワード再入力'
           style={{
             backgroundColor: "white",
             height: '55px',
@@ -40,7 +40,7 @@ export default function register() {
             marginBottom: '2rem',
           }}
         />
-        <Link href='/login/logined'
+        <Link href='/'
           style={{
             display: 'flex',
             justifyContent: 'center',
@@ -53,7 +53,7 @@ export default function register() {
             textDecoration: 'none',
           }}
         >
-          新規会員登録
+          パスワード再設定
         </Link>
       </div>
     </div>

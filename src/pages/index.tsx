@@ -23,53 +23,74 @@ export default function Home() {
       <main>
         <div
           style={{
-            backgroundColor: "#999",
-            position: "absolute",
-            top: 100,
-            left: "40%",
-            width: 100,
-            height: 100,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            width: '100%',
+            height: '100vh',
           }}
         >
-          ロゴ
-        </div>
-        <button
+        <Image
+          width={100}
+          height={100}
+          alt="back"
+          src={"/common/logo.svg"}
           style={{
-            backgroundColor: "white",
-            color: "black",
-            border: "1px solid black",
-            position: "absolute",
-            bottom: 350,
-            left: "40%",
+            display: 'flex',
+            alignItems: "center",
+            justifyContent: "center",
+            marginBottom: '150px',
+            borderRadius: '100%',
+            color: 'white',
           }}
-          onClick={()=>{
-            setLoginModal(false)
-            setShowModal(true)
-          }}
-        >
-          新規登録
-        </button>
-        <button
-          style={{
-            backgroundColor: "white",
-            color: "black",
-            border: "1px solid black",
-            position: "absolute",
-            bottom: 250,
-            left: "40%",
-          }}
-          onClick={()=>{
-            setLoginModal(true)
-            setShowModal(true)
-          }}
-        >
-          ログイン
-        </button>
+        />
+          <button
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              backgroundColor: "#0098FD",
+              width: '70%',
+              height: '55px',
+              borderRadius: '30px',
+              border: 'none',
+              color: "white",
+              marginBottom: '2rem',
+            }}
+            onClick={()=>{
+              setLoginModal(false)
+              setShowModal(true)
+            }}
+          >
+            新規登録
+          </button>
+          <button
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              backgroundColor: "#e0e0e0",
+              width: '70%',
+              height: '55px',
+              borderRadius: '30px',
+              border: 'none',
+              color: "#0098FD",
+              marginBottom: '2rem',
+            }}
+            onClick={()=>{
+              setLoginModal(true)
+              setShowModal(true)
+            }}
+          >
+            ログイン
+          </button>
 
-        {/* モーダル表示 */}
-        {
-          showModal && <TitleModal props={loginModal} />
-        }
+          {/* モーダル表示 */}
+          {
+            showModal && <TitleModal props={loginModal} />
+          }
+        </div>
       </main>
     </>
   );
