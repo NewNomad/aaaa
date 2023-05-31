@@ -2,6 +2,7 @@ import Link from 'next/link'
 import ModalBg from '../ModalBg'
 import { useRecoilState } from 'recoil'
 import { modalState } from '../../../atoms/modalAtom'
+import Image from 'next/image'
 
 type Props = {
   props: boolean
@@ -131,6 +132,15 @@ export default function TitleModal(props:Props) {
             }}
             onClick={closeTitleModal}
           >
+            <Image
+              width={25}
+              height={25}
+              alt='google'
+              src={'/socials/twitter.svg'}
+              style={{
+                marginRight: '15px'
+              }}
+            />
             Twitterでログイン
           </Link>
           <Link href="/login/logined"
@@ -150,6 +160,15 @@ export default function TitleModal(props:Props) {
             }}
             onClick={closeTitleModal}
           >
+            <Image
+              width={25}
+              height={25}
+              alt='google'
+              src={'/socials/google.svg'}
+              style={{
+                marginRight: '15px'
+              }}
+            />
             Googleでログイン
           </Link>
         </section>
@@ -179,6 +198,15 @@ export default function TitleModal(props:Props) {
                 }}
                 onClick={closeTitleModal}
               >
+              <Image
+                width={25}
+                height={25}
+                alt='google'
+                src={'/socials/mailRegist.svg'}
+                style={{
+                  marginRight: '15px'
+                }}
+              />
                 メールアドレスで新規登録
               </Link>
             </div>
