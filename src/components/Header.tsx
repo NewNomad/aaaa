@@ -1,3 +1,4 @@
+import { useCustomRouter } from "@/hooks/useCustomRouter";
 import { Styles } from "@/types/styles";
 import Image from "next/image";
 import React from "react";
@@ -7,6 +8,7 @@ type Props = {
 };
 
 export const Header = ({ title }: Props) => {
+  const { handleBackRouter } = useCustomRouter();
   return (
     <div style={styles.container}>
       <Image
@@ -15,6 +17,7 @@ export const Header = ({ title }: Props) => {
         alt="back"
         src={"/common/back.svg"}
         style={styles.back}
+        onClick={handleBackRouter}
       />
       <p style={styles.title}>{title}</p>
     </div>
