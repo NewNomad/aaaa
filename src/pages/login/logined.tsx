@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function logined() {
@@ -11,30 +12,46 @@ export default function logined() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <div
-          style={{
-            backgroundColor: "#999",
-            position: "absolute",
-            top: 100,
-            left: "40%",
-            width: 100,
-            height: 100,
-          }}
-        >
-          ロゴ
-        </div>
         <Link
-          style={{
-            backgroundColor: "white",
-            color: "black",
-            border: "1px solid black",
-            position: "absolute",
-            bottom: 300,
-            left: "40%",
-          }}
           href="/map"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            width: '100%',
+            height: '100vh',
+            textDecoration: 'none',
+          }}
         >
-          スタートボタン
+        <Image
+          width={350}
+          height={100}
+          alt="back"
+          src={"/common/logo2.svg"}
+          style={{
+            display: 'flex',
+            alignItems: "center",
+            justifyContent: "center",
+            marginBottom: '150px',
+            color: 'white',
+          }}
+        />
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              width: '70%',
+              height: '55px',
+              border: 'none',
+              color: "black",
+              fontWeight: 'bold',
+              marginBottom: '2rem',
+            }}
+          >
+            スタートボタン
+          </div>
         </Link>
       </main>
     </>
