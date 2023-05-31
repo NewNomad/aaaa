@@ -6,7 +6,8 @@ type Props = {
     title: string;
     userName: string;
     userIconUrl: string;
-  }
+}
+
 const LikeNotifiation = ({ imageUrl, userName, title, userIconUrl }: Props) => {
     return (
         <ul style={styles.container}>
