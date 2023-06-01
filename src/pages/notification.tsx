@@ -35,7 +35,7 @@ const Notification = () => {
   return (
     <main style={styles.container}>
       <p style={styles.title}>お知らせ</p>
-      <div style={styles.line}></div>
+      <span style={styles.line}></span>
 
       <ul style={styles.notifications}>
         {likeNotifications.map((x) => (
@@ -55,31 +55,35 @@ const Notification = () => {
 
 const styles: Styles = {
   container: {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    display: 'flex',
     flexDirection: "column",
-    alignItems: "center",
+    justifyContent: "left",
     height: "100vh",
     width: "100%",
   },
   line: {
-    left: "-1px",
-    top: "65px",
-    border: "1px solid #999999",
+    width: '100%',
+    height: '1px',
+    background: 'black',
   },
   title: {
-    margin: "20px",
-    width: "135px",
-    height: "25p",
-    left: "21px",
+    padding: "20px",
+    width: "100%",
     fontFamily: "Inter",
     fontStyle: "normal",
     fontWeight: "600",
     fontSize: "20px",
     lineHeight: "24px",
-    color: "#000000",
+    color: "black",
   },
   notifications: {
-    width: "100%",
-    padding: "0px",
+    padding: 0,
+    justifyContent: "center",
+    alignItems: "center",
+    margin: '50px',
   },
 };
 
