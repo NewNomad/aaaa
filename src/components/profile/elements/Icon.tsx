@@ -8,7 +8,7 @@ type Props = {
 export const Icon = ({ width, height }: Props) => {
   return (
     <Image
-      src="/profile/other.svg"
+      src="/profile/user_icon.png"
       alt="icon"
       width={width}
       height={height}
